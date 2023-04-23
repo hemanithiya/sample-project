@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}"></link>
+    <title>Django access records</title>
+  </head>
+  <body>
+    <h1>Here are your access records</h1>
+    <div>
+      {% if access_record %}
+        <table class="tablethtd">
+          <thead>
+            <th> Site Name</th>
+            <th> Date Accessed </th>
+          </thead>
+          {% for i in access_record %}
+          <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.date }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+          {% else %}
+          <p> NO ACCESS RECORDS FOUND </p>
+          {% endif %}
+    </div>
+  </body>
+</html>
